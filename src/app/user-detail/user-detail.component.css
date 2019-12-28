@@ -1,0 +1,8 @@
+.user-detail-card {
+  max-width: 400px;
+}
+.user-name {
+  float: left;
+  padding-left: 16px;
+  font-size: 0.8em;
+}
