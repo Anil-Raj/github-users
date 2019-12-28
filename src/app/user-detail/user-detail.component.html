@@ -3,13 +3,21 @@
     <div class="col-sm-12 col-md-6">
       <mat-card class="user-detail-card">
         <mat-card-header>
-          <img mat-card-avatar [src]="user?.avatar_url" [alt]="user?.login" />
-          <mat-card-title>{{ user?.login }}</mat-card-title>
+          <img
+            mat-card-avatar
+            [src]="(user$ | async)?.avatar_url"
+            [alt]="(user$ | async)?.login"
+          />
+          <mat-card-title>{{ (user$ | async)?.login }}</mat-card-title>
         </mat-card-header>
-        <img mat-card-image [src]="user?.avatar_url" [alt]="user?.login" />
+        <img
+          mat-card-image
+          [src]="(user$ | async)?.avatar_url"
+          [alt]="(user$ | async)?.login"
+        />
         <mat-card-content>
           <p>
-            {{ user?.bio }}
+            {{ (user$ | async).bio }}
           </p>
         </mat-card-content>
       </mat-card>
@@ -19,7 +27,7 @@
         <mat-list-item>Repository List</mat-list-item>
         <mat-list-item *ngFor="let repo of repos$ | async">
           <mat-divider></mat-divider>
-          {{ repo.name }}
+          {{ repo?.name }}
         </mat-list-item>
       </mat-list>
     </div>
